@@ -21,7 +21,7 @@ Use like any other [Babel plugin](https://babeljs.io/docs/plugins/).
 Most users will want to run
 
 ```sh
-$ npm install babel-plugin-angularjs-annotate --save-dev
+$ npm install https://github.com/putoutjs/babel-plugin-angularjs-annotate.git --save-dev
 ```
 
 and add the plugin to your `.babelrc` file:
