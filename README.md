@@ -4,6 +4,10 @@
 
 Fork of [ng-annotate](https://github.com/olov/ng-annotate) for Babel users, with a focus on speed and ES6 support.
 
+## Contains unmerged PR
+
+- Add `run.$inject` existing condition (https://github.com/schmod/babel-plugin-angularjs-annotate/pull/61)
+
 Adds Angular 1.x DI annotations to ES5/ES6 code being processed by Babel, with support for explicit annotations (`/* @ngInject */`), and automatic (implicit) annotation of typical Angular code patterns.
 
 Fully compatible with ES5, transpiled ES6, and raw ES6 sources.  Offers significantly reduced build times for projects already using Babel, compared to the standalone ng-annotate tool.
