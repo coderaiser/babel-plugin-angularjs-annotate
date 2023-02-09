@@ -198,6 +198,31 @@ function matchPrologueDirectives(path) {
     let matches = directives.map(dir => dir.value.value)
       .filter(val => prologueDirectives.indexOf(val) !== -1);
 
+     const programPath = path.scope.getProgramParent().path;
+
+    let isInjectAdded = false;
+
+    programPath.traverse({
+      AssignmentExpression(path) {
+        const leftPath = path.get('left');
+
+        if (!leftPath.isMemberExpression())
+          return;
+
+        if (!leftPath.get('object').isIdentifier({name: 'run'}))
+          return;
+
+        if (!leftPath.get('property').isIdentifier({name: '$inject'}))
+          return;
+
+        isInjectAdded = true;
+        path.stop();
+      }
+    });
+
+    if (isInjectAdded)
+      return false;
+    
     if(matches.length){
       let match = matches[0].trim();
       if(match === "ngInject") return true;
